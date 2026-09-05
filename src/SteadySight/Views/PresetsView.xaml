@@ -1,0 +1,57 @@
+<views:ConfigViewBase x:Class="SteadySight.Views.PresetsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:views="clr-namespace:SteadySight.Views">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <TextBlock Text="预设方案" FontSize="26" FontWeight="SemiBold" Margin="0,0,0,6" />
+            <TextBlock Text="按游戏类型快速切换整套配置，游戏中可用 Ctrl+F5 循环。"
+                       FontSize="13" Foreground="{StaticResource App.TextSecondary}" Margin="0,0,0,20" />
+
+            <UniformGrid Columns="3" Margin="0,0,0,20">
+                <Button x:Name="PresetStandard" Content="标准&#10;日常 FPS 与冒险" Margin="4"
+                        Click="Preset_Click" Tag="standard" Height="68" />
+                <Button x:Name="PresetStrong" Content="强力&#10;强眩晕时使用" Margin="4"
+                        Click="Preset_Click" Tag="strong" Height="68" />
+                <Button x:Name="PresetFps" Content="射击&#10;四角取景 + 准星" Margin="4"
+                        Click="Preset_Click" Tag="fps" Height="68" />
+                <Button x:Name="PresetDrive" Content="驾驶&#10;参考线 + 全框" Margin="4"
+                        Click="Preset_Click" Tag="drive" Height="68" />
+                <Button x:Name="PresetCinema" Content="观影&#10;纯遮罩无干扰" Margin="4"
+                        Click="Preset_Click" Tag="cinema" Height="68" />
+                <Button x:Name="PresetMinimal" Content="极简&#10;仅中心小圆点" Margin="4"
+                        Click="Preset_Click" Tag="minimal" Height="68" />
+            </UniformGrid>
+
+            <TextBlock x:Name="CurrentPreset" Text="当前：标准" FontSize="14" FontWeight="SemiBold"
+                       Margin="0,0,0,24" />
+
+            <GroupBox Header="研究启发与适用边界">
+                <StackPanel>
+                    <TextBlock Text="• Fernandes &amp; Feiner (2016)：30 人头显 VR 实验中，随虚拟运动动态收窄视野降低了主观不适。DOI: 10.1109/3DUI.2016.7460053。" 
+                               TextWrapping="Wrap" FontSize="12" Margin="0,2" Foreground="{StaticResource App.TextSecondary}" />
+                    <TextBlock Text="• Prothero 等 (1999)：头显实验中，与惯性参照一致的独立视觉背景降低了模拟器不适与姿态不稳。PMID: 10102741。" 
+                               TextWrapping="Wrap" FontSize="12" Margin="0,2" Foreground="{StaticResource App.TextSecondary}" />
+                    <TextBlock Text="• Ang &amp; Quarles (2023)：88 篇头显研究的系统综述显示，FOV 限制与静态参照的研究结果并不一致，效果依赖场景与实现。DOI: 10.3389/frvir.2023.1027552。" 
+                               TextWrapping="Wrap" FontSize="12" Margin="0,2" Foreground="{StaticResource App.TextSecondary}" />
+                    <TextBlock Text="• Davis, Nesbitt &amp; Nalivaiko (2014)：系统综述总结了视觉诱发不适的成因、症状与测量方法。DOI: 10.1145/2677758.2677780。" 
+                               TextWrapping="Wrap" FontSize="12" Margin="0,2" Foreground="{StaticResource App.TextSecondary}" />
+                    <TextBlock Text="上述证据主要来自头显 VR。本工具借鉴其设计思路用于桌面 3D 游戏，但当前版本尚无用户对照试验，不能据此保证个体效果。"
+                               TextWrapping="Wrap" FontSize="12" FontWeight="SemiBold" Margin="0,10,0,2" Foreground="{StaticResource App.TextPrimary}" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="同类开源方案与不足">
+                <StackPanel>
+                    <TextBlock Text="SteadySight 采用透明点击穿透的 WPF 叠加窗口，组合边缘遮罩、中心锚点、动态圆点、水平参考线、多显示器、热键与休息提醒。"
+                               TextWrapping="Wrap" FontSize="12" Margin="0,2" Foreground="{StaticResource App.TextSecondary}" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="说明">
+                <TextBlock Text="本工具不是医疗器械，也不替代医疗建议。出现眩晕、恶心、头痛或视疲劳时应立即停止游戏并休息；症状持续或严重时请就医。"
+                           TextWrapping="Wrap" FontSize="12" Foreground="{StaticResource App.TextSecondary}" />
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
+</views:ConfigViewBase>

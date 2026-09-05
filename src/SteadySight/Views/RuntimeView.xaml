@@ -1,0 +1,48 @@
+<views:ConfigViewBase x:Class="SteadySight.Views.RuntimeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:views="clr-namespace:SteadySight.Views">
+    <StackPanel>
+        <TextBlock Text="运行设置" FontSize="26" FontWeight="SemiBold" Margin="0,0,0,6" />
+        <TextBlock Text="叠加层如何跟随显示器、刷新频率与健康提醒。"
+                   FontSize="13" Foreground="{StaticResource App.TextSecondary}" Margin="0,0,0,20" />
+
+        <GroupBox Header="显示与性能">
+            <StackPanel>
+                <TextBlock Text="叠加目标" Margin="0,0,0,6" />
+                <ComboBox x:Name="TargetCombo">
+                    <ComboBoxItem Content="所有显示器" Tag="AllMonitors" />
+                    <ComboBoxItem Content="主显示器" Tag="Primary" />
+                    <ComboBoxItem Content="跟随前台窗口" Tag="ActiveWindow" />
+                </ComboBox>
+                <TextBlock Text="跟随前台窗口：叠加层只覆盖当前游戏窗口，多开场景更聚焦。" FontSize="12"
+                           Foreground="{StaticResource App.TextSecondary}" Margin="0,8,0,0" />
+
+                <TextBlock Text="渲染帧率" Margin="0,18,0,6" />
+                <ComboBox x:Name="FpsCombo">
+                    <ComboBoxItem Content="60 FPS（推荐）" Tag="Standard60" />
+                    <ComboBoxItem Content="120 FPS" Tag="Smooth120" />
+                    <ComboBoxItem Content="30 FPS 省电" Tag="PowerSave30" />
+                </ComboBox>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="健康提醒">
+            <StackPanel>
+                <CheckBox x:Name="HotkeyCheck" Content="启用游戏内全局快捷键（F1-F4、Ctrl+F5/F6）" />
+                <TextBlock x:Name="HotkeyStatus" FontSize="12"
+                           Foreground="{StaticResource App.TextSecondary}" Margin="0,-4,0,4" />
+                <TextBlock Text="休息提醒间隔" Margin="0,12,0,6" />
+                <ComboBox x:Name="BreakCombo">
+                    <ComboBoxItem Content="30 分钟" Tag="Every30" />
+                    <ComboBoxItem Content="15 分钟" Tag="Every15" />
+                    <ComboBoxItem Content="45 分钟" Tag="Every45" />
+                    <ComboBoxItem Content="60 分钟" Tag="Every60" />
+                    <ComboBoxItem Content="关闭" Tag="Off" />
+                </ComboBox>
+                <Button x:Name="TestBreak" Content="立即测试休息提示" Margin="0,14,0,0" />
+                <Button x:Name="ResetDefaults" Content="恢复推荐默认配置" Margin="0,8,0,0" />
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
+</views:ConfigViewBase>

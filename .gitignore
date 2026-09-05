@@ -1,0 +1,13 @@
+# Build output
+**/bin/
+**/obj/
+release/
+
+# User and IDE state
+.vs/
+*.user
+*.suo
+
+# Local QA artifacts
+preview/single-instance-settings.json
+preview/ui-qa-settings.json

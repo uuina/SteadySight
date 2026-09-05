@@ -1,0 +1,59 @@
+<Window x:Class="SteadySight.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SteadySight 防晕视觉助手"
+        Width="1100" Height="720" MinWidth="960" MinHeight="620"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource App.Background}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="232" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 左侧导航 -->
+        <Border Background="{StaticResource App.NavBackground}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="20,24,20,20">
+                    <TextBlock Text="SteadySight" FontSize="22" FontWeight="Bold"
+                               Foreground="{StaticResource App.AccentDark}" />
+                    <TextBlock Text="游戏防晕视觉助手" FontSize="12"
+                               Foreground="{StaticResource App.TextSecondary}" Margin="1,4,0,0" />
+                </StackPanel>
+
+                <TextBlock DockPanel.Dock="Bottom" Text="v1.0.0 · WPF 自绘叠加"
+                           FontSize="11" Foreground="{StaticResource App.TextSecondary}"
+                           Margin="20,0,0,18" />
+
+                <ListBox x:Name="NavList" BorderThickness="0" Background="Transparent"
+                         SelectionChanged="NavList_SelectionChanged">
+                    <ListBoxItem Content="总览" />
+                    <ListBoxItem Content="边缘稳定" />
+                    <ListBoxItem Content="中心锚点" />
+                    <ListBoxItem Content="动态圆点" />
+                    <ListBoxItem Content="水平参考线" />
+                    <ListBoxItem Content="运行设置" />
+                    <ListBoxItem Content="预设与依据" />
+                </ListBox>
+            </DockPanel>
+        </Border>
+
+        <!-- 右侧内容 -->
+        <Grid Grid.Column="1" Margin="28,24,28,24">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Margin="0,0,0,18">
+                <TextBlock x:Name="PageTitle" Text="总览" FontSize="20" FontWeight="SemiBold" />
+                <TextBlock x:Name="PageDesc" Text="快速了解当前状态与快捷方式。"
+                           FontSize="12" Foreground="{StaticResource App.TextSecondary}" Margin="0,3,0,0" />
+            </StackPanel>
+            <Border Grid.Row="1" Background="{StaticResource App.Surface}"
+                    CornerRadius="8" Padding="22"
+                    BorderBrush="{StaticResource App.Border}" BorderThickness="1">
+                <ContentControl x:Name="PageHost" />
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
