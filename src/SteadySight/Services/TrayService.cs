@@ -18,10 +18,21 @@ public sealed class TrayService : IDisposable
         _toggle = toggle;
         _exit = exit;
 
+        System.Drawing.Icon appIcon = SystemIcons.Application;
+        try
+        {
+            if (!string.IsNullOrEmpty(Environment.ProcessPath))
+            {
+                var extracted = System.Drawing.Icon.ExtractAssociatedIcon(Environment.ProcessPath);
+                if (extracted != null) appIcon = extracted;
+            }
+        }
+        catch { }
+
         _icon = new NotifyIcon
         {
             Text = "SteadySight 稳视",
-            Icon = SystemIcons.Application,
+            Icon = appIcon,
             Visible = true
         };
         var menu = new ContextMenuStrip();
